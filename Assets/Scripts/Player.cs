@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject playerDead;
+    [SerializeField] GameObject Spawner;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
             Instantiate(playerDead, gameObject.transform.position, gameObject.transform.rotation);
             Time.timeScale = .6f;
             Destroy(this.gameObject);
+            Destroy(Spawner);
         }
     }
 }
