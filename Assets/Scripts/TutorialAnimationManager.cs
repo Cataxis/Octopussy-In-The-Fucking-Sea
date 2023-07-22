@@ -20,10 +20,10 @@ public class TutorialAnimationManager : MonoBehaviour
         // Animación para la primera imagen (image1)
         Sequence seqImage1 = DOTween.Sequence();
         seqImage1.Append(image1.DOScale(Vector3.one * 1.5f, 0.5f)); // Expandir la imagen
-        seqImage1.Append(image1.DOScale(Vector3.one, 0.5f)); // Contraer la imagen
+        seqImage1.Append(image1.DOScale(Vector3.one, 1.5f)); // Contraer la imagen
         seqImage1.OnComplete(() => Destroy(image1.gameObject)); // Destruir la imagen una vez completada la animación
 
-        Invoke("StartTutorialAnimationRight", 1f);
+        Invoke("StartTutorialAnimationRight", .1f);
     }
 
     void StartTutorialAnimationRight()
@@ -32,7 +32,7 @@ public class TutorialAnimationManager : MonoBehaviour
         Sequence seqImage2 = DOTween.Sequence();
         seqImage2.AppendInterval(duration); // Esperar a que termine la animación de la imagen 1
         seqImage2.Append(image2.DOScale(Vector3.one * 1.5f, 0.5f)); // Expandir la imagen
-        seqImage2.Append(image2.DOScale(Vector3.one, 0.5f)); // Contraer la imagen
+        seqImage2.Append(image2.DOScale(Vector3.one, 1.5f)); // Contraer la imagen
         seqImage2.OnComplete(() => Destroy(image2.gameObject)); // Destruir la imagen una vez completada la animación
     }
 }

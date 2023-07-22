@@ -394,8 +394,8 @@ Transform:
   - {fileID: 1070810177}
   - {fileID: 1135510}
   - {fileID: 2021551194}
-  - {fileID: 383742982}
   - {fileID: 473911221}
+  - {fileID: 383742982}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1515,6 +1515,7 @@ GameObject:
   - component: {fileID: 1045258872}
   - component: {fileID: 1045258871}
   - component: {fileID: 1045258873}
+  - component: {fileID: 1045258874}
   m_Layer: 0
   m_Name: PlayGame
   m_TagString: Untagged
@@ -1648,6 +1649,18 @@ MonoBehaviour:
   game: {fileID: 80237857}
   panel: {fileID: 2037623369}
   tutorial: {fileID: 2065394471}
+--- !u!114 &1045258874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045258870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5e2f162a031964c9683113a79700dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1070810175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,7 +2722,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1045258874}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
         m_MethodName: LoadGame
         m_Mode: 1
