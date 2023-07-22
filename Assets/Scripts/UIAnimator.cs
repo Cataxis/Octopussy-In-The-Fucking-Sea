@@ -9,13 +9,11 @@ public class UIAnimator : MonoBehaviour
     public TextMeshProUGUI bestScoreText;
     public TextMeshProUGUI gameOverText;
     public Image buttonImage;
-    public GameObject panel;
+    public Image panel; // Cambiamos el tipo de referencia a Image
 
     // Esta función se llama cuando se activa el panel
     private void OnEnable()
     {
-        // Aplicar el fade-in sutil al panel cuando se active
-        panel.GetComponent<CanvasGroup>().DOFade(1f, 0.5f);
 
         // Iniciar las animaciones de los textos en loop (bouncy)
         AnimateBouncyText(scoreText);
@@ -28,11 +26,6 @@ public class UIAnimator : MonoBehaviour
         AnimateBouncyButton();
     }
 
-    private void OnDisable()
-    {
-        // Restablecer el alpha del panel cuando se desactive
-        panel.GetComponent<CanvasGroup>().alpha = 0f;
-    }
 
     // Función para animar el rebote del botón
     private void AnimateBouncyButton()
