@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject playerDead;
     [SerializeField] GameObject Spawner;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -15,20 +16,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        if (Mathf.Abs(horizontalInput) > 0.1f)
         {
-            Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            if (touchPos.x < 0)
-            {
-                rb.AddForce(Vector2.left * moveSpeed);
-            }
-            else
-            {
-                rb.AddForce(Vector2.right * moveSpeed);
-            }
+            rb.AddForce(Vector2.right * horizontalInput * moveSpeed);
         }
-
         else
         {
             rb.velocity = Vector2.zero;
@@ -41,7 +34,7 @@ public class Player : MonoBehaviour
         {
             GameManager.Instance.IsPlayerAlive = false;
             Instantiate(playerDead, gameObject.transform.position, gameObject.transform.rotation);
-            Time.timeScale = .6f;
+            Time.timeScale = 0.6f;
             Destroy(this.gameObject);
             Destroy(Spawner);
         }
